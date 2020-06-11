@@ -1,6 +1,6 @@
-import gameState from "./gameState";
-
-const TICK_RATE = 1000;
+import game from "./gameState";
+import { TICK_RATE } from "./constants";
+import initButtons from "./buttons";
 
 function tick() {
   console.log("tick", Date.now());
@@ -8,6 +8,7 @@ function tick() {
 
 async function init() {
   console.log("starting game");
+  initButtons(game.handleUserAction);
 
   let nextTimeToTick = Date.now();
 
@@ -15,7 +16,7 @@ async function init() {
     const NOW = Date.now();
 
     if (nextTimeToTick <= NOW) {
-      gameState.tick();
+      game.tick();
       nextTimeToTick = NOW + TICK_RATE;
     }
 
