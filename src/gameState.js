@@ -21,7 +21,6 @@ const gameState = {
   timeToEndCelebrating: -1,
   tick() {
     this.clock++;
-    console.log("clock", this.clock);
 
     if (this.clock === this.wakeTime) {
       this.wake();
@@ -90,7 +89,6 @@ const gameState = {
     this.timeToStartCelebrating = this.clock + 2;
   },
   startGame() {
-    console.log("hatching");
     this.current = "HATCHING";
     this.wakeTime = this.clock + 3;
     modFox("egg");
@@ -98,7 +96,6 @@ const gameState = {
     writeModal();
   },
   wake() {
-    console.log("awoken");
     this.current = "IDLING";
     this.wakeTime = -1;
     modFox("idling");
